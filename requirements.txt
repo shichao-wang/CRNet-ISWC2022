@@ -1,0 +1,3 @@
+dgl-cu111==0.7.1
+torch==1.8.2+cu111
+torchmetrics==0.6.0

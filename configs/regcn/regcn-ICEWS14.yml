@@ -1,0 +1,26 @@
+data:
+  data_folder: "./datasets/ICEWS14s"
+  hist_len: 3 
+  bidirectional: true
+  prepend_val_and_test: true
+  shuffle_seed: 1234
+
+model:
+  _class: tkgl.models.regcn.REGCN
+  hidden_size: 200
+  rgcn_num_layers: 2
+  rgcn_self_loop: true
+  convtranse_kernel_size: 3
+  convtranse_channels: 50
+  dropout: 0.2
+  norm_embeds: true
+
+training:
+  criterion:
+    _class: tkgl.models.EntLoss
+  optim:
+    _class: torch.optim.Adam
+    lr: 1.0e-3
+    weight_decay: 1.0e-5
+  patient: 5
+  grad_clip_norm: 1.0

@@ -1,0 +1,28 @@
+data:
+  data_folder: "./datasets/ICEWS18"
+  hist_len: 3
+  bidirectional: true
+  prepend_val_and_test: true
+  shuffle_seed: 1234
+
+model:
+  _class: tkgl.models.cenet.CENet
+  hidden_size: 200
+  rgcn_num_layers: 2
+  rgcn_num_heads: 4
+  convtranse_kernel_size: 3
+  convtranse_channels: 50
+  dropout: 0.2
+  k: 10
+  logit_weight: 1.0
+  rel_evolve: true
+
+training:
+  criterion:
+    _class: tkgl.models.cen.HistEntLoss
+  optim:
+    _class: torch.optim.Adam
+    lr: 1.0e-3
+    weight_decay: 1.0e-5
+  patient: 5
+  grad_clip_norm: 1.0

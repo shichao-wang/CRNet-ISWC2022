@@ -1,1 +1,2 @@
-# CRNet-ISWC2022
+# temporal-knowledge-graph-learning
+Repository for Temporal Knowledge Graph Learning
